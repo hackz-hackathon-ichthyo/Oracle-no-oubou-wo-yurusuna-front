@@ -1,10 +1,11 @@
-name: Deploy
+name: Deploy to Production
 
 on:
   push:
-    branches:
-      - main
-
+    branches-ignore:
+      - '**'
+    tags:
+      - 'v*'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -29,13 +30,18 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
-          cache: yarn
-          cache-dependency-path: './yarn.lock'
+          # cache: yarn
+          # cache-dependency-path: './yarn.lock'
 
       - name: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: |
           yarn install --prefer-offline
+
+      - name: create env
+        run: |
+          echo "VITE_AUTH0_DOMAIN=${{ secrets.PROD_AUTH0_DOMAIN }}" >> .env
+          echo "VITE_AUTH0_CLIENT_ID=${{ secrets.PROD_AUTH0_CLIENT_ID }}" >> .env
 
       - name: yarn run build
         run: |
@@ -50,4 +56,4 @@ jobs:
 
       - name: Copy files to the test website with the AWS CLI
         run: |
-          aws s3 sync ./dist s3://${{ secrets.S3_BACKET_NAME }}
+          aws s3 sync ./dist s3://${{ secrets.PROD_S3_BACKET_NAME }}
