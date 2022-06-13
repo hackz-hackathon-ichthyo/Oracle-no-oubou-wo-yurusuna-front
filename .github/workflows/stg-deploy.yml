@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - feature/add-auth0
 
 jobs:
   build-and-deploy:
@@ -30,8 +29,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
-          # cache: yarn
-          # cache-dependency-path: './yarn.lock'
+          cache: yarn
+          cache-dependency-path: './yarn.lock'
 
       - name: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
