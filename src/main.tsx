@@ -1,6 +1,7 @@
 import { Auth0Provider } from '@auth0/auth0-react'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import App from './App'
 import { getConfig } from './auth0Config'
 import './index.css'
@@ -14,7 +15,11 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       clientId={config.clientId}
       redirectUri={window.location.origin}
     >
-      <App />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+        </Routes>
+      </BrowserRouter>
     </Auth0Provider>
   </React.StrictMode>
 )
