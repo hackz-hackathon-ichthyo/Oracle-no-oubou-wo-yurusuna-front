@@ -16,5 +16,6 @@
     // "parser": "@typescript-eslint/parser",
     "ecmaVersion": "latest",
     "sourceType": "module"
-  }
+  },
+  "parser": "@typescript-eslint/parser"
 }

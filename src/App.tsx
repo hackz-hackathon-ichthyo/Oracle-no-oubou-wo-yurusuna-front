@@ -1,50 +1,24 @@
-import { useState } from 'react'
-import logo from './logo.svg'
+import { Fragment, useEffect, useState } from 'react'
 import './App.css'
-import LoginButton from './components/login'
-import LogoutButton from './components/logout'
-import Profile from './components/profile'
+import User from './entity/User'
+import UserRepositoryImpl from './repository/user/userRepositoryImpl'
+import Stream from './views/stream'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [user, setUser] = useState<User | null>(null)
+  const userRepository = new UserRepositoryImpl()
+
+  useEffect(() => {
+    setUser(userRepository.getUser())
+  }, [])
+
+  if (!user) {
+    return <Fragment></Fragment>
+  }
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <LoginButton />
-        <LogoutButton />
-        <Profile />
-        <p>I'm from CloudFront!</p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <Stream user={user} />
     </div>
   )
 }

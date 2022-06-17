@@ -1,12 +1,10 @@
 import { Auth0Provider } from '@auth0/auth0-react'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import App from './App'
-import LoginButton from './components/login'
-import LogoutButton from './components/logout'
-import Profile from './components/profile'
-import './index.css'
 import { getConfig } from './auth0Config'
+import './index.css'
 
 const config = getConfig()
 
@@ -17,7 +15,11 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       clientId={config.clientId}
       redirectUri={window.location.origin}
     >
-      <App />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+        </Routes>
+      </BrowserRouter>
     </Auth0Provider>
   </React.StrictMode>
 )
