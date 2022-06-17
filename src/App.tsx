@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import LoginButton from './components/login'
-import LogoutButton from './components/logout'
-import Profile from './components/profile'
+import LoginButton from './components/auth/login'
+import LogoutButton from './components/auth/logout'
+import Profile from './components/auth/profile'
 
 function App() {
   const [count, setCount] = useState(0)
