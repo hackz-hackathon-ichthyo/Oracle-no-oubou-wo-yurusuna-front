@@ -1,7 +1,8 @@
 import User from '~/entity/User'
 import Header from '~/layouts/header'
+
 interface Props {
-  user: User
+  user?: User
 }
 
 function Stream(props: Props) {

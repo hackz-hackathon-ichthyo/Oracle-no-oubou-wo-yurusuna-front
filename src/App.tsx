@@ -1,9 +1,9 @@
 import { Fragment, useEffect, useState } from 'react'
 import './App.css'
 import User from './entity/User'
-import Header from './layouts/header'
 
 import UserRepositoryImpl from './repository/user/userRepositoryImpl'
+import Stream from './views/stream'
 
 function App() {
   const [user, setUser] = useState<User | null>(null)
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header user={user} />
+      <Stream user={user} />
     </div>
   )
 }
