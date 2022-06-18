@@ -1,7 +1,11 @@
-import React from 'react'
+import AmazonIVSPlayer from '@/components/AmazonIVSPlayer'
 
 const Player = () => {
-  return <div css={style.title}>Main</div>
+  return (
+    <div>
+      <AmazonIVSPlayer />
+    </div>
+  )
 }
 
 const style = {
