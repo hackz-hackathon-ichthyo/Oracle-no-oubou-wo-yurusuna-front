@@ -1,12 +1,13 @@
-import LoginButton from '~/components/auth/login'
-import User from '~/entity/User'
+import React from "react";
+import LoginButton from "~/components/auth/login";
+import User from "~/entity/User";
 
 interface Props {
-  user?: User
+  user?: User;
 }
 
 const Header = (props: Props) => {
-  console.log(props.user)
+  console.log(props.user);
   return (
     <div className="header">
       <div className="title">デスマTV</div>
@@ -18,7 +19,7 @@ const Header = (props: Props) => {
         <LoginButton />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
