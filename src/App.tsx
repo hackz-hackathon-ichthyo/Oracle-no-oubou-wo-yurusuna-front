@@ -1,22 +1,21 @@
-import '@/App.css'
-import User from '@/entity/User'
-import UserRepositoryImpl from '@/repository/user/userRepositoryImpl'
 import Stream from '@/views/stream'
-import { Fragment, useEffect, useState } from 'react'
 import './App.css'
-import { Chat } from '@/layouts/Chat'
+import { useAuth0 } from '@auth0/auth0-react'
+import LoginButton from '@/components/auth/login'
 
 function App() {
-  const [user, setUser] = useState<User | null>(null)
-  const userRepository = new UserRepositoryImpl()
-
-  useEffect(() => {
-    setUser(userRepository.getUser())
-  }, [])
+  const { user } = useAuth0()
 
   if (!user) {
-    return <Fragment></Fragment>
+    return (
+      <div className={'d-flex flex-column align-items-center'}>
+        <h1 style={style.header}>ログインする</h1>
+        <LoginButton />
+      </div>
+    )
   }
+
+  console.log('app')
 
   return (
     <div className="App">
@@ -26,3 +25,18 @@ function App() {
 }
 
 export default App
+const style = {
+  header: {
+    flex: '1',
+    fontSize: '3rem',
+    fontFamily: 'DotGothic16',
+  },
+  title: {
+    fontSize: '30px',
+    fontWeight: 'bold',
+  },
+  userIcon: {
+    height: '50px',
+    borderRadius: '50%',
+  },
+}

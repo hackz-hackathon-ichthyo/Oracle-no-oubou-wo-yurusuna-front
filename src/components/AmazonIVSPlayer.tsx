@@ -77,7 +77,8 @@ const AmazonIVSPlayer = () => {
 }
 
 const style = {
-  height: '100%',
+  width: '90%',
+  height: 'auto',
 }
 // <div>
 //   <div ref={playerRef}></div>
