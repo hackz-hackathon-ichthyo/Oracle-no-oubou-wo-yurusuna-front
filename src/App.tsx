@@ -2,6 +2,7 @@ import Stream from '@/views/stream'
 import './App.css'
 import { useAuth0 } from '@auth0/auth0-react'
 import LoginButton from '@/components/auth/login'
+import backStyle from './App.module.css'
 
 function App() {
   const { user } = useAuth0()
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <div className={'App'}>
-      <div className={'back'}>
+      <div className={backStyle.back}>
         <Stream user={user} />
       </div>
     </div>
