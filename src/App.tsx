@@ -1,4 +1,3 @@
-import React from 'react'
 import '@/App.css'
 import User from '@/entity/User'
 import UserRepositoryImpl from '@/repository/user/userRepositoryImpl'
