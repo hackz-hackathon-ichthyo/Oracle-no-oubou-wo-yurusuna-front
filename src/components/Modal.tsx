@@ -1,4 +1,4 @@
-import { postChannelCreate } from '@/entity/api'
+import { postChannelCreate } from '@/utils/api'
 import { Box, Modal, Typography } from '@mui/material'
 import { useCallback, useEffect, useState } from 'react'
 
