@@ -18,8 +18,10 @@ function App() {
   console.log('app')
 
   return (
-    <div className="App">
-      <Stream user={user} />
+    <div className={'App'}>
+      <div className="back">
+        <Stream user={user} />
+      </div>
     </div>
   )
 }
