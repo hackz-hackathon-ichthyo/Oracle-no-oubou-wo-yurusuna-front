@@ -1,9 +1,6 @@
 .back {
-    background-image: url('img.png');
+    background-image: url('https://pbs.twimg.com/media/Dkt3fnqUcAAVaUN.jpg');
     background-color: rgba(255, 255, 255, 0.9);
-    /*background-color:rgba(0,0,0,0.9);*/
     background-blend-mode: lighten;
-    /*background-blend-mode:darken;*/
-
     background-repeat: repeat;
 }
