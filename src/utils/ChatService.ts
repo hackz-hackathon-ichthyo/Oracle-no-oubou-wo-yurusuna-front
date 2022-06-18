@@ -6,6 +6,9 @@ interface Props {
 }
 
 export const ChatService = (props: Props) => {
+  const SOCKET_URL =
+    import.meta.env.VITE_SOCKET_URL || 'ws://localhost:8080/rooms/hoge'
+
   const [messages, setMessages] = useState([props])
   const socketRef = useRef(null)
   // const socketRef = useRef()
@@ -14,7 +17,7 @@ export const ChatService = (props: Props) => {
     console.log('Connectinng..')
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    socketRef.current = new WebSocket('ws://localhost:8080/rooms/hoge')
+    socketRef.current = new WebSocket(SOCKET_URL)
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     socketRef.current.onopen = () => console.log('socketRef opened')

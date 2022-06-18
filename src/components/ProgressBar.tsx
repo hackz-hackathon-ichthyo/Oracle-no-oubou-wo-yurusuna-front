@@ -1,10 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-const proggressApi = 'progress'
-const instance = axios.create({
-  baseURL: 'https://api.deathmatv.online/',
-})
+const proggressApi = '/progress'
 
 interface Progress {
   count: number
@@ -15,6 +12,12 @@ interface Progress {
 const intervalMs = 60000
 
 export const ProgressBar = () => {
+  const DEATH_API_URL =
+    import.meta.env.VITE_DEATH_API_URL || 'http://localhost:8080'
+
+  const instance = axios.create({
+    baseURL: DEATH_API_URL,
+  })
   const [count, setCount] = useState(0)
   const [progress, setProgress] = useState({
     count: 0,
