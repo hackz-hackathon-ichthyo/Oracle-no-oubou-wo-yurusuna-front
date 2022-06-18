@@ -1,7 +1,7 @@
-import Stream from '@/views/stream'
-import './App.css'
-import { useAuth0 } from '@auth0/auth0-react'
 import LoginButton from '@/components/auth/login'
+import Stream from '@/views/stream'
+import { useAuth0 } from '@auth0/auth0-react'
+import './App.css'
 import backStyle from './App.module.css'
 
 function App() {

@@ -1,10 +1,7 @@
-import axios from 'axios'
+import instance from '@/utils/api'
 import { useEffect, useState } from 'react'
 
 const proggressApi = 'progress'
-const instance = axios.create({
-  baseURL: 'https://api.deathmatv.online/',
-})
 
 interface Progress {
   count: number
