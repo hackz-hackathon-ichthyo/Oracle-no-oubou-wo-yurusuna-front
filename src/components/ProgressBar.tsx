@@ -1,4 +1,4 @@
-import instance from '@/entity/api'
+import instance from '@/utils/api'
 import { useEffect, useState } from 'react'
 
 const proggressApi = 'progress'
@@ -11,7 +11,7 @@ interface Progress {
 
 const intervalMs = 1000
 
-const ProgressBar = () => {
+export const ProgressBar = () => {
   const [count, setCount] = useState(0)
   const [progress, setProgress] = useState({
     count: 0,
@@ -39,8 +39,23 @@ const ProgressBar = () => {
   }, [progress])
 
   return (
-    <progress id="issue_progress" max="1" value={progress.progress}></progress>
+    <div>
+      <p style={style.header}>配信者の進捗</p>
+      <progress
+        id="issue_progress"
+        max="1"
+        value={progress.progress}
+        className={'w-100'}
+        style={style.bar}
+      ></progress>
+    </div>
   )
 }
-
-export default ProgressBar
+const style = {
+  bar: {
+    height: '30px',
+  },
+  header: {
+    marginBottom: '0',
+  },
+}

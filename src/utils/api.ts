@@ -7,7 +7,7 @@ interface ResponsePostChannelCreate {
 }
 
 const instance = axios.create({
-  baseURL: 'https://stg-api.deathmatv.online/',
+  baseURL: 'https://api.deathmatv.online/',
   headers: {},
 })
 
