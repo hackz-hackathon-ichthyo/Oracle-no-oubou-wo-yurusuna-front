@@ -1,10 +1,10 @@
+import App from '@/App'
+import { getConfig } from '@/auth0Config'
+import '@/index.css'
 import { Auth0Provider } from '@auth0/auth0-react'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import App from './App'
-import { getConfig } from './auth0Config'
-import './index.css'
 
 const config = getConfig()
 
