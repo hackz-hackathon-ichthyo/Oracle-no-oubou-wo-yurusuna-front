@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { DEATH_API_URL } from '@/utils/constants'
 
 interface ResponsePostChannelCreate {
   stream_url: string
@@ -7,11 +8,11 @@ interface ResponsePostChannelCreate {
 }
 
 const instance = axios.create({
-  baseURL: 'https://api.deathmatv.online/',
+  baseURL: DEATH_API_URL,
   headers: {},
 })
 
-export const postChannelCreate = async (cid: number) => {
+export const postChannelCreate = async (cid: string) => {
   const result = await (
     await instance.post(
       'channel/create',

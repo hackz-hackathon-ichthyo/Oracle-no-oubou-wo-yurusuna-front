@@ -3,7 +3,7 @@ import { Box, Modal, Typography } from '@mui/material'
 import { useCallback, useEffect, useState } from 'react'
 
 const style = {
-  position: 'absolute' as 'absolute',
+  position: 'absolute' as const,
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
@@ -16,7 +16,7 @@ const style = {
 
 interface Props {
   isShow: boolean
-  cid: number
+  cid: string
   setIsShow: (b: boolean) => void
 }
 

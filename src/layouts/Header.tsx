@@ -4,6 +4,7 @@ import React from 'react'
 import LoginButton from '@/components/auth/login'
 import { User } from '@auth0/auth0-react'
 import LogoutButton from '@/components/auth/logout'
+import ChannelCreateButton from '@/components/ChannelCreateButton'
 
 interface Props {
   user: User
@@ -26,6 +27,9 @@ const Header = (props: Props) => {
           >
             <img src={props.user.picture} css={style.userIcon} />
             <LogoutButton />
+            <ChannelCreateButton
+              client_id={props.user.sub ? props.user.sub : 'example-user-id'}
+            ></ChannelCreateButton>
           </div>
         ) : (
           <></>

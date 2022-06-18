@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react'
 import MyModal from './Modal'
 
 interface Props {
-  client_id: number
+  client_id: string
 }
 
 const ChannelCreateButton = (props: Props) => {
