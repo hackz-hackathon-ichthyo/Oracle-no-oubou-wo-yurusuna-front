@@ -1,5 +1,5 @@
-import LoginButton from '~/components/auth/login'
-import User from '~/entity/User'
+import LoginButton from '@/components/auth/login'
+import User from '@/entity/User'
 
 interface Props {
   user?: User
