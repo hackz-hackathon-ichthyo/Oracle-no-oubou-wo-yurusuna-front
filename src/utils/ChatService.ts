@@ -39,6 +39,9 @@ export const ChatService = (props: Props) => {
       if (isPaused) return
       console.log(e.data)
       const message = JSON.parse(e.data)
+
+      setMessages((prevMessages) => [...prevMessages, message])
+
       console.log('e', message)
     }
   }, [isPaused])
