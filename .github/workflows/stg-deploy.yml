@@ -41,6 +41,8 @@ jobs:
         run: |
           echo "VITE_AUTH0_DOMAIN=${{ secrets.STG_AUTH0_DOMAIN }}" >> .env
           echo "VITE_AUTH0_CLIENT_ID=${{ secrets.STG_AUTH0_CLIENT_ID }}" >> .env
+          echo "VITE_DEATH_API_URL=${{ secrets.STG_VITE_DEATH_API_URL }}" >> .env
+          echo "VITE_SOCKET_URL=${{ secrets.STG_VITE_SOCKET_URL }}" >> .env
 
       - name: yarn run build
         run: |
