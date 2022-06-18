@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { SOCKET_URL } from '@/utils/constants'
 
 interface Props {
   name: string
@@ -7,6 +6,9 @@ interface Props {
 }
 
 export const ChatService = (props: Props) => {
+  const SOCKET_URL =
+    import.meta.env.VITE_SOCKET_URL || 'ws://localhost:8080/rooms/hoge'
+
   const [messages, setMessages] = useState([props])
   const socketRef = useRef(null)
   // const socketRef = useRef()
