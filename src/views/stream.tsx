@@ -17,12 +17,16 @@ function Stream(props: Props) {
   return (
     <div>
       {props.user ? (
-        <div>
-          <Header user={props.user} />
-          <ProgressBar />
-          <div className={'d-flex flex-row justify-content-evenly'}>
-            <Player></Player>
-            <Chat name={name} text={''} />
+        <div className={'d-flex flex-column justify-content-between'}>
+          <div>
+            <Header user={props.user} />
+            <ProgressBar />
+          </div>
+          <div>
+            <div className={'d-flex flex-row justify-content-evenly'}>
+              <Player></Player>
+              <Chat name={name} text={''} />
+            </div>
           </div>
         </div>
       ) : (
