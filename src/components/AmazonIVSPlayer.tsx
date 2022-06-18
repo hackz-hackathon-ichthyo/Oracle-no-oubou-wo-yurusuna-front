@@ -64,16 +64,14 @@ const AmazonIVSPlayer = () => {
   // }, [])
 
   return (
-    <div ref={divEl}>
-      <video
-        id="video-player"
-        ref={videoEl}
-        playsInline
-        autoPlay
-        height={300}
-        controls
-      />
-    </div>
+    <video
+      id="video-player"
+      ref={videoEl}
+      playsInline
+      autoPlay
+      height={300}
+      controls
+    />
   )
 }
 // <div>

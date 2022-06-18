@@ -1,25 +1,37 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
-import LoginButton from '@/components/auth/login'
 import User from '@/entity/User'
+import { ProgressBar } from '@/components/ProgressBar'
 
 interface Props {
   user?: User
 }
 
-const Header = (props: Props) => {
+export const Header = (props: Props) => {
   console.log(props.user)
   return (
     <div className="header">
-      <div className="title">デスマTV</div>
-      {props.user ? (
-        <div>
-          <img className="userIcon" src={props.user.iconUrl} />
-        </div>
-      ) : (
-        <LoginButton />
-      )}
+      <div className="title" style={style.header}>
+        デスマTV
+      </div>
+      <ProgressBar />
+
+      {/*{props.user ? (*/}
+      {/*  <div>*/}
+      {/*    <img className="userIcon" src={props.user.iconUrl} />*/}
+      {/*  </div>*/}
+      {/*) : (*/}
+      {/*  <LoginButton />*/}
+      {/*)}*/}
     </div>
   )
+}
+
+const style = {
+  header: {
+    fontSize: '3rem',
+    fontFamily: 'DotGothic16',
+  },
 }
 
 export default Header

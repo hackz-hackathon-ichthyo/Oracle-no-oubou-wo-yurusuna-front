@@ -17,6 +17,13 @@ export const Chat = (state: Props = initState) => {
   const scrollBottomRef = useRef<HTMLDivElement>(null)
   const [text, setText] = useState('')
 
+  const submitMessage = () => {
+    if (text.length === 0) return
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    sendMessage({ text: text, name: state.name })
+    setText('')
+  }
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const handleInputChange = (e) => {
@@ -25,17 +32,13 @@ export const Chat = (state: Props = initState) => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const handleButtonClick = () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    sendMessage({ text: text, name: state.name })
-    setText('')
+    submitMessage()
   }
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const handleOnKeydown = (event) => {
     if (event.keyCode == 13) {
-      sendMessage({ text: text, name: state.name })
-      setText('')
+      submitMessage()
     }
   }
   useLayoutEffect(() => {
@@ -62,11 +65,12 @@ export const Chat = (state: Props = initState) => {
           <div ref={scrollBottomRef}></div>
         </ul>
       </div>
-      <div className="input">
+      <div className={'input-group mb-3'}>
         <input
           type="text"
           placeholder="メッセージ"
           value={text}
+          className={'form-control'}
           onChange={handleInputChange}
           onKeyDown={handleOnKeydown}
         />
