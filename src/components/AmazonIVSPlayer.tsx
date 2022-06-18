@@ -10,7 +10,7 @@ const AmazonIVSPlayer = () => {
     const script = document.createElement('script')
     // script.src =
     //   'https://player.live-video.net/1.10.0/amazon-ivs-videojs-tech.min.js'
-    script.src = 'https://player.live-video.net/1.0.0/amazon-ivs-player.min.js'
+    script.src = 'https://player.live-video.net/1.10.0/amazon-ivs-player.min.js'
     script.async = true
     document.body.appendChild(script)
     script.onload = () => {
