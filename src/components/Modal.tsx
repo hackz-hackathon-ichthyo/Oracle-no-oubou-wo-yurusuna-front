@@ -22,14 +22,19 @@ interface Props {
 
 const MyModal = (props: Props) => {
   const [broadcastInfo, setBroadcastInfo] = useState({
-    broadcast_url: '',
+    stream_url: '',
     playback_url: '',
     secret: '',
   })
   useEffect(() => {
     if (props.isShow) {
-      const result = postChannelCreate(props.cid)
-      setBroadcastInfo(result)
+      postChannelCreate(props.cid)
+        .then((response) => {
+          setBroadcastInfo(response)
+        })
+        .catch(() => {
+          console.log('Failed to post /channel/create')
+        })
     }
   }, [props.isShow])
 
@@ -49,7 +54,7 @@ const MyModal = (props: Props) => {
           Info
         </Typography>
         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          broadcast_url {broadcastInfo.broadcast_url}
+          stream_url {broadcastInfo.stream_url}
         </Typography>
         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           playback_url {broadcastInfo.playback_url}
