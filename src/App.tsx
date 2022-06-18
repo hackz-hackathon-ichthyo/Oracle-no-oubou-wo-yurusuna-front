@@ -4,6 +4,7 @@ import User from '@/entity/User'
 import UserRepositoryImpl from '@/repository/user/userRepositoryImpl'
 import Stream from '@/views/stream'
 import { Fragment, useEffect, useState } from 'react'
+import './App.css'
 
 function App() {
   const [user, setUser] = useState<User | null>(null)

@@ -15,6 +15,7 @@ function Stream(props: Props) {
       <Player />
       <Chat />
       <ProggressBar />
+      LoginButton
     </div>
   )
 }
