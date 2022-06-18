@@ -84,7 +84,7 @@ export const Chat = (state: Props = initState) => {
 
 const style = {
   body: {
-    height: '500px',
+    height: '700px',
   },
   listBox: {},
 }

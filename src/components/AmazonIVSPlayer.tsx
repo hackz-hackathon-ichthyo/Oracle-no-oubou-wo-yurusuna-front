@@ -71,8 +71,14 @@ const AmazonIVSPlayer = () => {
       autoPlay
       height={300}
       controls
+      css={style}
     />
   )
+}
+
+const style = {
+  width: '90%',
+  height: 'auto',
 }
 // <div>
 //   <div ref={playerRef}></div>

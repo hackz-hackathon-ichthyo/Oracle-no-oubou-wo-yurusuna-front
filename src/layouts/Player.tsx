@@ -13,10 +13,10 @@ const Player = () => {
 
 const style = {
   title: {
-    color: 'red',
+    color: 'black',
   },
   body: {
-    backgroundColor: 'red',
+    backgroundColor: '#0a0a0a',
   },
 }
 
