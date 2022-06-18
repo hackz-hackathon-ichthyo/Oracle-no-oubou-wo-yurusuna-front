@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { Message } from '@/components/Message'
 import { ChatService } from '@/utils'
 
@@ -14,7 +14,7 @@ export const Chat = (state: Props = initState) => {
     name: '管理人',
     text: `ようこそ、${state.name}さん`,
   })
-
+  const scrollBottomRef = useRef<HTMLDivElement>(null)
   const [text, setText] = useState('')
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -30,11 +30,30 @@ export const Chat = (state: Props = initState) => {
     sendMessage({ text: text, name: state.name })
     setText('')
   }
-
+  useLayoutEffect(() => {
+    if (scrollBottomRef && scrollBottomRef.current) {
+      scrollBottomRef?.current?.scrollIntoView()
+    }
+  })
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   return (
-    <div>
+    <div
+      style={style.body}
+      className={'d-flex flex-column justify-content-between'}
+    >
+      <div className={'overflow-scroll mh-100'} style={style.listBox}>
+        <ul>
+          {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+            messages.map((msg: Props, idx: number) => {
+              return <Message key={idx} name={msg.name} message={msg.text} />
+            })
+          }
+          <div ref={scrollBottomRef}></div>
+        </ul>
+      </div>
       <div className="input">
         <input
           type="text"
@@ -46,15 +65,13 @@ export const Chat = (state: Props = initState) => {
           送信
         </button>
       </div>
-      <ul>
-        {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          //@ts-ignore
-          messages.map((msg: Props, idx: number) => {
-            return <Message key={idx} name={msg.name} message={msg.text} />
-          })
-        }
-      </ul>
     </div>
   )
+}
+
+const style = {
+  body: {
+    height: '500px',
+  },
+  listBox: {},
 }

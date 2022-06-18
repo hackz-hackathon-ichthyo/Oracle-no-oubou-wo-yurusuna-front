@@ -15,8 +15,10 @@ function Stream(props: Props) {
   return (
     <div>
       <Header user={props.user} />
-      <Player />
-      <Chat name={name} text={''} />
+      <div className={'d-flex flex-row'}>
+        <Player></Player>
+        <Chat name={name} text={''} />
+      </div>
       <ProggressBar />
       LoginButton
     </div>
