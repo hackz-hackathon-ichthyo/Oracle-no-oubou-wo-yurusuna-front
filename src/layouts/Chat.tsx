@@ -30,6 +30,14 @@ export const Chat = (state: Props = initState) => {
     sendMessage({ text: text, name: state.name })
     setText('')
   }
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const handleOnKeydown = (event) => {
+    if (event.keyCode == 13) {
+      sendMessage({ text: text, name: state.name })
+      setText('')
+    }
+  }
   useLayoutEffect(() => {
     if (scrollBottomRef && scrollBottomRef.current) {
       scrollBottomRef?.current?.scrollIntoView()
@@ -60,6 +68,7 @@ export const Chat = (state: Props = initState) => {
           placeholder="メッセージ"
           value={text}
           onChange={handleInputChange}
+          onKeyDown={handleOnKeydown}
         />
         <button disabled={!text} onClick={handleButtonClick}>
           送信
