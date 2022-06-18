@@ -12,7 +12,7 @@ interface Progress {
   progress: number
 }
 
-const intervalMs = 1000
+const intervalMs = 60000
 
 export const ProgressBar = () => {
   const [count, setCount] = useState(0)
