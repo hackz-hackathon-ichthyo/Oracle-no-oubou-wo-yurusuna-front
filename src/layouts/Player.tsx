@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Player = () => {
   return <div css={style.title}>Main</div>
 }
