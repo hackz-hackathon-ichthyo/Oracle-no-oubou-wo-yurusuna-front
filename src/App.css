@@ -91,7 +91,6 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -112,14 +111,14 @@ section {
 body {
   line-height: 1;
 }
-.App{
+.App {
   background-color: white;
 }
-.back{
-  background-image: url("img.png");
-  background-color:rgba(255,255,255,0.9);
+.back {
+  background-image: url('img.png');
+  background-color: rgba(255, 255, 255, 0.9);
   /*background-color:rgba(0,0,0,0.9);*/
-  background-blend-mode:lighten;
+  background-blend-mode: lighten;
   /*background-blend-mode:darken;*/
 
   background-repeat: repeat;
