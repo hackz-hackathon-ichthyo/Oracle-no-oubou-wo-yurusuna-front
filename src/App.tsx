@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className={'App'}>
-      <div className="back">
+      <div className={'back'}>
         <Stream user={user} />
       </div>
     </div>
@@ -40,5 +40,8 @@ const style = {
   userIcon: {
     height: '50px',
     borderRadius: '50%',
+  },
+  back: {
+    backgroundImage: `url(`,
   },
 }
