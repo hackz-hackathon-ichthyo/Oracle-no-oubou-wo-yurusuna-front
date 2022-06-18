@@ -7,7 +7,12 @@ function App() {
   const { user } = useAuth0()
 
   if (!user) {
-    return <LoginButton />
+    return (
+      <div className={'d-flex flex-column align-items-center'}>
+        <h1 style={style.header}>ログインする</h1>
+        <LoginButton />
+      </div>
+    )
   }
 
   console.log('app')
@@ -20,3 +25,18 @@ function App() {
 }
 
 export default App
+const style = {
+  header: {
+    flex: '1',
+    fontSize: '3rem',
+    fontFamily: 'DotGothic16',
+  },
+  title: {
+    fontSize: '30px',
+    fontWeight: 'bold',
+  },
+  userIcon: {
+    height: '50px',
+    borderRadius: '50%',
+  },
+}

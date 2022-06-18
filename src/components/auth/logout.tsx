@@ -4,10 +4,20 @@ const LogoutButton = () => {
   const { logout } = useAuth0()
 
   return (
-    <button onClick={() => logout({ returnTo: window.location.origin })}>
+    <button
+      className={'btn btn-lg'}
+      style={style.button}
+      onClick={() => logout({ returnTo: window.location.origin })}
+    >
       Log Out
     </button>
   )
 }
 
 export default LogoutButton
+const style = {
+  button: {
+    borderRadius: '10px 10px 10px 10px',
+    padding: '10px 30px',
+  },
+}
