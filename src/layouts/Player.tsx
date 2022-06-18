@@ -2,7 +2,10 @@ import AmazonIVSPlayer from '@/components/AmazonIVSPlayer'
 
 const Player = () => {
   return (
-    <div>
+    <div
+      className={'w-75 d-flex align-items-center justify-content-center'}
+      style={style.body}
+    >
       <AmazonIVSPlayer />
     </div>
   )
@@ -11,6 +14,9 @@ const Player = () => {
 const style = {
   title: {
     color: 'red',
+  },
+  body: {
+    backgroundColor: 'red',
   },
 }
 

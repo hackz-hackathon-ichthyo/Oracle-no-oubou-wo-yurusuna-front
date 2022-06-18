@@ -54,7 +54,7 @@ export const ChatService = (props: Props) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     socketRef.current.send(JSON.stringify(aMessage))
-    setMessages((prevMessages) => [...prevMessages, aMessage])
+    // setMessages((prevMessages) => [...prevMessages, aMessage])
   }
 
   return [messages, sendMessage]
