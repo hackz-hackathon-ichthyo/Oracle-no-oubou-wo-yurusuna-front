@@ -1,21 +1,21 @@
 {
-  "root": true,
   "env": {
     "browser": true,
-    "node": true
+    "es2021": true
   },
-  "extends": [],
-  "rules": {
-    "no-unused-vars": "warn",
-    "no-path-concat": "off",
-    "camelcase": "warn",
-    "no-array-constructor": "off"
-  },
-  "ignorePatterns": ["./.github/*"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    // "parser": "@typescript-eslint/parser",
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "parser": "@typescript-eslint/parser"
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {}
 }
