@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { SOCKET_URL } from '@/utils/constants'
 
 interface Props {
   name: string
@@ -14,7 +15,7 @@ export const ChatService = (props: Props) => {
     console.log('Connectinng..')
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    socketRef.current = new WebSocket('ws://localhost:8080/rooms/hoge')
+    socketRef.current = new WebSocket(SOCKET_URL)
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     socketRef.current.onopen = () => console.log('socketRef opened')

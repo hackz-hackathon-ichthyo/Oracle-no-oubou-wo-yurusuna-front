@@ -1,9 +1,10 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { DEATH_API_URL } from '@/utils'
 
-const proggressApi = 'progress'
+const proggressApi = '/progress'
 const instance = axios.create({
-  baseURL: 'https://api.deathmatv.online/',
+  baseURL: DEATH_API_URL,
 })
 
 interface Progress {

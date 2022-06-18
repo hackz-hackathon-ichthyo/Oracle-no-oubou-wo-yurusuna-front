@@ -1,6 +1,9 @@
 const MILLISECONDS = 1
 const SECONDS = 1000 * MILLISECONDS
-
+export const DEATH_API_URL =
+  process.env.VITE_DEATH_API_URL || 'http://localhost:8080'
+export const SOCKET_URL =
+  process.env.VITE_SOCKET_URL || 'ws://localhost:8080/rooms/hoge'
 export const DEFAULT_OPTIONS = {}
 
 export const SOCKET_IO_PING_INTERVAL = 25 * SECONDS
