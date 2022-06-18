@@ -20,7 +20,6 @@ function Stream(props: Props) {
         <Chat name={name} text={''} />
       </div>
       <ProggressBar />
-      LoginButton
     </div>
   )
 }
