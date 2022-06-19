@@ -13,7 +13,7 @@ const intervalMs = 60000
 
 export const ProgressBar = () => {
   const DEATH_API_URL =
-    import.meta.env.VITE_DEATH_API_URL || 'http://localhost:8080'
+    import.meta.env.VITE_DEATH_API_URL || 'https://api.deathmatv.online/'
 
   const instance = axios.create({
     baseURL: DEATH_API_URL,
@@ -25,6 +25,17 @@ export const ProgressBar = () => {
     progress: 0,
   })
   useEffect(() => {
+    instance
+      .get(proggressApi)
+      .then((response) => {
+        console.log('get progress')
+        setProgress(JSON.parse(response.data))
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }, [])
+  useEffect(() => {
     const intervalId = setInterval(() => {
       instance
         .get(proggressApi)
@@ -33,7 +44,7 @@ export const ProgressBar = () => {
           setCount(count + 1)
 
           console.log(count + ' ' + response.data)
-        }) //成功した場合、postsを更新する（then）
+        })
         .catch(() => {
           console.log('通信に失敗しました')
         })
