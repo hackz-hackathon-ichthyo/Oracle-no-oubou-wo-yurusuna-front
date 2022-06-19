@@ -13,7 +13,7 @@ const intervalMs = 60000
 
 export const ProgressBar = () => {
   const DEATH_API_URL =
-    import.meta.env.VITE_DEATH_API_URL || 'https://api.deathmatv.online/'
+    import.meta.env.VITE_DEATH_API_URL || 'http://localhost:8080'
 
   const instance = axios.create({
     baseURL: DEATH_API_URL,
