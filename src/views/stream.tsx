@@ -3,7 +3,7 @@ import Header from '@/layouts/Header'
 import Player from '@/layouts/Player'
 import { User } from '@auth0/auth0-react'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ProgressBar } from '@/components/ProgressBar'
 import LoginButton from '@/components/auth/login'
 
@@ -13,6 +13,10 @@ interface Props {
 
 function Stream(props: Props) {
   const [name, setName] = useState('anonymous')
+
+  useEffect(() => {
+    setName(props.user.nickname || 'anonymous')
+  }, [])
 
   return (
     <div>
