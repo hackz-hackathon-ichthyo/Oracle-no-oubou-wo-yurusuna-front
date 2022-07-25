@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import { Message } from '@/components/Message'
-import { GraphQLChatService } from '@/utils/GraphQLChatService'
+import { GraphQLChatService } from '@/utils'
 import { format } from 'date-fns'
 import { ja } from 'date-fns/locale'
 import { DethamaTVChatMessage } from '@/types/API'
