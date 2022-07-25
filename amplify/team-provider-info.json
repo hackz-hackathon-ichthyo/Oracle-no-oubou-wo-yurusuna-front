@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-deathmatvstream-dev-104208-authRole",
+      "UnauthRoleArn": "arn:aws:iam::861540815413:role/amplify-deathmatvstream-dev-104208-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::861540815413:role/amplify-deathmatvstream-dev-104208-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-deathmatvstream-dev-104208-deployment",
+      "UnauthRoleName": "amplify-deathmatvstream-dev-104208-unauthRole",
+      "StackName": "amplify-deathmatvstream-dev-104208",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:861540815413:stack/amplify-deathmatvstream-dev-104208/d5b49090-0af1-11ed-8ceb-0eb697211a23",
+      "AmplifyAppId": "d35ea7iys9k82f"
+    }
+  }
+}

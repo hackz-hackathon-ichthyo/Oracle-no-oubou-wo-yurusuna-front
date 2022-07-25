@@ -25,7 +25,7 @@ function Stream(props: Props) {
           <div>
             <div className={'d-flex flex-row justify-content-evenly'}>
               <Player></Player>
-              <Chat name={name} text={''} />
+              <Chat user_name={name} message={''} create_at={''} />
             </div>
           </div>
         </div>
