@@ -1,27 +1,42 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import { Message } from '@/components/Message'
-import { ChatService } from '@/utils'
+import { GraphQLChatService } from '@/utils'
+import { format } from 'date-fns'
+import { ja } from 'date-fns/locale'
+import { DeathmaTVChatMessage } from '@/types/API'
 
 interface Props {
-  name: string
-  text: string
+  user_name: string
+  message: string
+  create_at: string
 }
 
-const initState: Props = { name: '', text: '' }
+const initState: Props = {
+  user_name: '',
+  message: '',
+  create_at: format(new Date(), 'yyyy/MM/dd HH:mm', { locale: ja }),
+}
 
 export const Chat = (state: Props = initState) => {
-  const [messages, sendMessage] = ChatService({
-    name: '管理人',
-    text: `ようこそ、${state.name}さん`,
+  const { messages, sendMessage } = GraphQLChatService({
+    user_name: '管理人',
+    message: `ようこそ、${state.user_name}さん`,
+    __typename: 'DeathmaTVChatMessage',
+    create_at: new Date().getTime().toString(),
+    channel_id: '1',
   })
   const scrollBottomRef = useRef<HTMLDivElement>(null)
   const [text, setText] = useState('')
 
   const submitMessage = () => {
     if (text.length === 0) return
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    sendMessage({ text: text, name: state.name })
+    sendMessage({
+      message: text,
+      user_name: state.user_name,
+      channel_id: '1',
+      create_at: new Date().getTime().toString(),
+      __typename: 'DeathmaTVChatMessage',
+    })
     setText('')
   }
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -54,16 +69,21 @@ export const Chat = (state: Props = initState) => {
       className={'d-flex flex-column justify-content-between'}
     >
       <div className={'overflow-scroll mh-100'} style={style.listBox}>
-        <ul>
-          {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            //@ts-ignore
-            messages.map((msg: Props, idx: number) => {
-              return <Message key={idx} name={msg.name} message={msg.text} />
-            })
-          }
+        <div>
+          {messages.map((msg: DeathmaTVChatMessage, idx: number) => {
+            return (
+              <Message
+                key={idx}
+                user_name={msg.user_name}
+                message={msg.message}
+                create_at={msg.create_at}
+                __typename={msg.__typename}
+                channel_id={msg.channel_id}
+              />
+            )
+          })}
           <div ref={scrollBottomRef}></div>
-        </ul>
+        </div>
       </div>
       <div className={'input-group mb-3'}>
         <input

@@ -21,4 +21,9 @@ export default defineConfig({
 
     tsconfigPaths(),
   ],
+  resolve: {
+    alias: {
+      './runtimeConfig': './runtimeConfig.browser',
+    },
+  },
 })

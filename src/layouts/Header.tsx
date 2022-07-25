@@ -1,7 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
-
-import LoginButton from '@/components/auth/login'
 import { User } from '@auth0/auth0-react'
 import LogoutButton from '@/components/auth/logout'
 

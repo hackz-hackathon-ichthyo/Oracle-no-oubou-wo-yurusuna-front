@@ -12,6 +12,7 @@ export const ChatService = (props: Props) => {
   const [messages, setMessages] = useState([props])
   const socketRef = useRef(null)
   // const socketRef = useRef()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isPaused, setPause] = useState(false)
   useEffect(() => {
     console.log('Connectinng..')

@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#  Amplify
+amplify
+src/graphql
+src/types/API.ts
+src/aws-exports.js

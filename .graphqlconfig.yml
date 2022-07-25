@@ -1,0 +1,18 @@
+projects:
+  DeathmaTV Chat App:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - src/graphql/**/*.ts
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: typescript
+        generatedFileName: src/types/API.ts
+        docsFilePath: src/graphql
+        region: ap-northeast-1
+        apiId: fi5uvnkfj5hrfbdx74hsvcnxce
+        maxDepth: 2
+extensions:
+  amplify:
+    version: 3

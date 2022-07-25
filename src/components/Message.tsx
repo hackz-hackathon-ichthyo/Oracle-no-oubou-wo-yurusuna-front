@@ -1,16 +1,8 @@
+import { DeathmaTVChatMessage } from '@/types/API'
 import { format } from 'date-fns'
 import ja from 'date-fns/locale/ja'
 
-interface Props {
-  name: string
-  message: string
-}
-
-const initState = {
-  name: '',
-  message: '',
-}
-export const Message = (state: Props = initState) => {
+export const Message = (state: DeathmaTVChatMessage) => {
   return (
     <div className={'d-flex flex-column'}>
       <p style={style.main}>{state.message}</p>
@@ -18,8 +10,12 @@ export const Message = (state: Props = initState) => {
         className={'d-flex flex-row justify-content-between'}
         style={style.sub}
       >
-        <p>{state.name}</p>
-        <p>{format(new Date(), 'yyyy/MM/dd HH:mm', { locale: ja })}</p>
+        <p>{state.user_name}</p>
+        <p>
+          {format(parseInt(state.create_at, 10), 'yyyy/MM/dd HH:mm', {
+            locale: ja,
+          })}
+        </p>
       </div>
     </div>
   )
