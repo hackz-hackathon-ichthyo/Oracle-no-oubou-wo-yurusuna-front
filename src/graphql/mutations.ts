@@ -2,12 +2,35 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createDethamaTVChatMessage = /* GraphQL */ `
-  mutation CreateDethamaTVChatMessage(
-    $input: CreateDethamaTVChatMessageInput!
+export const createDeathmaTVChatMessage = /* GraphQL */ `
+  mutation CreateDeathmaTVChatMessage(
+    $input: CreateDeathmaTVChatMessageInput!
   ) {
-    createDethamaTVChatMessage(input: $input) {
-      id
+    createDeathmaTVChatMessage(input: $input) {
+      message
+      user_name
+      create_at
+      channel_id
+    }
+  }
+`;
+export const updateDeathmaTVChatMessage = /* GraphQL */ `
+  mutation UpdateDeathmaTVChatMessage(
+    $input: UpdateDeathmaTVChatMessageInput!
+  ) {
+    updateDeathmaTVChatMessage(input: $input) {
+      message
+      user_name
+      create_at
+      channel_id
+    }
+  }
+`;
+export const deleteDeathmaTVChatMessage = /* GraphQL */ `
+  mutation DeleteDeathmaTVChatMessage(
+    $input: DeleteDeathmaTVChatMessageInput!
+  ) {
+    deleteDeathmaTVChatMessage(input: $input) {
       message
       user_name
       create_at

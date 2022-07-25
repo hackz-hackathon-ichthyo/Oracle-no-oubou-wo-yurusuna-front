@@ -3,7 +3,7 @@ import { Message } from '@/components/Message'
 import { GraphQLChatService } from '@/utils'
 import { format } from 'date-fns'
 import { ja } from 'date-fns/locale'
-import { DethamaTVChatMessage } from '@/types/API'
+import { DeathmaTVChatMessage } from '@/types/API'
 
 interface Props {
   user_name: string
@@ -21,8 +21,7 @@ export const Chat = (state: Props = initState) => {
   const { messages, sendMessage } = GraphQLChatService({
     user_name: '管理人',
     message: `ようこそ、${state.user_name}さん`,
-    id: '',
-    __typename: 'DethamaTVChatMessage',
+    __typename: 'DeathmaTVChatMessage',
     create_at: new Date().getTime().toString(),
     channel_id: '1',
   })
@@ -32,12 +31,11 @@ export const Chat = (state: Props = initState) => {
   const submitMessage = () => {
     if (text.length === 0) return
     sendMessage({
-      id: '',
       message: text,
       user_name: state.user_name,
       channel_id: '1',
       create_at: new Date().getTime().toString(),
-      __typename: 'DethamaTVChatMessage',
+      __typename: 'DeathmaTVChatMessage',
     })
     setText('')
   }
@@ -72,7 +70,7 @@ export const Chat = (state: Props = initState) => {
     >
       <div className={'overflow-scroll mh-100'} style={style.listBox}>
         <div>
-          {messages.map((msg: DethamaTVChatMessage, idx: number) => {
+          {messages.map((msg: DeathmaTVChatMessage, idx: number) => {
             return (
               <Message
                 key={idx}
@@ -80,7 +78,6 @@ export const Chat = (state: Props = initState) => {
                 message={msg.message}
                 create_at={msg.create_at}
                 __typename={msg.__typename}
-                id={msg.id}
                 channel_id={msg.channel_id}
               />
             )

@@ -2,10 +2,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getDethamaTVChatMessage = /* GraphQL */ `
-  query GetDethamaTVChatMessage($id: ID!) {
-    getDethamaTVChatMessage(id: $id) {
-      id
+export const getDeathmaTVChatMessage = /* GraphQL */ `
+  query GetDeathmaTVChatMessage($channel_id: String!, $create_at: String!) {
+    getDeathmaTVChatMessage(channel_id: $channel_id, create_at: $create_at) {
       message
       user_name
       create_at
@@ -13,19 +12,18 @@ export const getDethamaTVChatMessage = /* GraphQL */ `
     }
   }
 `;
-export const listDethamaTVChatMessages = /* GraphQL */ `
-  query ListDethamaTVChatMessages(
-    $filter: TableDethamaTVChatMessageFilterInput
+export const listDeathmaTVChatMessages = /* GraphQL */ `
+  query ListDeathmaTVChatMessages(
+    $filter: TableDeathmaTVChatMessageFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listDethamaTVChatMessages(
+    listDeathmaTVChatMessages(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
     ) {
       items {
-        id
         message
         user_name
         create_at

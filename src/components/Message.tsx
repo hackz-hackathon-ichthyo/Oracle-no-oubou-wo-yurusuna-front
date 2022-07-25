@@ -1,8 +1,8 @@
-import { DethamaTVChatMessage } from '@/types/API'
+import { DeathmaTVChatMessage } from '@/types/API'
 import { format } from 'date-fns'
 import ja from 'date-fns/locale/ja'
 
-export const Message = (state: DethamaTVChatMessage) => {
+export const Message = (state: DeathmaTVChatMessage) => {
   return (
     <div className={'d-flex flex-column'}>
       <p style={style.main}>{state.message}</p>

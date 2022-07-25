@@ -27,3 +27,4 @@ dist-ssr
 amplify
 src/graphql
 src/types/API.ts
+src/aws-exports.js

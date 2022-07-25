@@ -1,26 +1,26 @@
 import { useEffect, useState } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
-import { listDethamaTVChatMessages } from '@/graphql/queries'
-import { createDethamaTVChatMessage } from '@/graphql/mutations'
+import { listDeathmaTVChatMessages } from '@/graphql/queries'
+import { createDeathmaTVChatMessage } from '@/graphql/mutations'
 import {
-  DethamaTVChatMessage,
-  ListDethamaTVChatMessagesQuery,
+  DeathmaTVChatMessage,
+  ListDeathmaTVChatMessagesQuery,
 } from '@/types/API'
 import { GraphQLResult } from '@aws-amplify/api-graphql'
 
 const fetchChatMessages = async () => {
   const result = (await API.graphql(
-    graphqlOperation(listDethamaTVChatMessages)
+    graphqlOperation(listDeathmaTVChatMessages)
   )) as GraphQLResult
 
-  const data = result.data as ListDethamaTVChatMessagesQuery
+  const data = result.data as ListDeathmaTVChatMessagesQuery
 
-  if (!data.listDethamaTVChatMessages) {
+  if (!data.listDeathmaTVChatMessages) {
     return []
   }
 
-  const messages = data.listDethamaTVChatMessages
-    .items as DethamaTVChatMessage[]
+  const messages = data.listDeathmaTVChatMessages
+    .items as DeathmaTVChatMessage[]
 
   return messages.sort((first, second) => {
     if (first.create_at < second.create_at) {
@@ -33,8 +33,8 @@ const fetchChatMessages = async () => {
   })
 }
 
-export const GraphQLChatService = (initialMessage: DethamaTVChatMessage) => {
-  const [messages, setMessages] = useState<Array<DethamaTVChatMessage>>([
+export const GraphQLChatService = (initialMessage: DeathmaTVChatMessage) => {
+  const [messages, setMessages] = useState<Array<DeathmaTVChatMessage>>([
     initialMessage,
   ])
 
@@ -45,11 +45,11 @@ export const GraphQLChatService = (initialMessage: DethamaTVChatMessage) => {
     })()
   })
 
-  const sendMessage = (message: DethamaTVChatMessage) => {
+  const sendMessage = (message: DeathmaTVChatMessage) => {
     // eslint-disable-next-line @typescript-eslint/no-extra-semi
     ;(async () => {
       await API.graphql({
-        query: createDethamaTVChatMessage,
+        query: createDeathmaTVChatMessage,
         variables: {
           input: {
             message: message.message,
